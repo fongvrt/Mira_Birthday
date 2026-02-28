@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Mira! 🎉</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;600&family=Prompt:wght@400;600&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            font-family: 'Kanit', sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 50px 30px;
+            border-radius: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            max-width: 85%;
+            width: 450px;
+            z-index: 10;
+            border: 5px solid #fff;
+        }
+
+        .icon-birthday {
+            font-size: 60px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        h1 {
+            color: #ff4757;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            font-family: 'Prompt', sans-serif;
+        }
+
+        .wish-eng {
+            color: #57606f;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .wish-thai {
+            color: #2f3542;
+            font-size: 1.3rem;
+            font-weight: 600;
+            line-height: 1.8;
+            border-top: 2px dashed #ff9a9e;
+            padding-top: 20px;
+        }
+
+        .btn-celebrate {
+            background: #ff4757;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 71, 87, 0.3);
+        }
+
+        .btn-celebrate:hover {
+            transform: scale(1.1);
+            background: #ff6b81;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <span class="icon-birthday">🎁</span>
+        
+        <h1>Happy Birthday to Mira! 🎂</h1>
+        
+        <p class="wish-eng">Wish you all the best on your special day!</p>
+        
+        <p class="wish-thai">ขอให้หนูมีความสุขเท่าโลกเลยนะมิรา</p>
+        
+        <button class="btn-celebrate" onclick="celebrate()">ฉลองกันเลย! 🎈</button>
+    </div>
+
+    <script>
+        // ฟังก์ชันยิงพลุแบบอลังการ
+        function celebrate() {
+            var duration = 3 * 1000;
+            var end = Date.now() + duration;
+
+            (function frame() {
+                confetti({
+                    particleCount: 3,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: ['#ff4757', '#ff7f50', '#ffd1dc']
+                });
+                confetti({
+                    particleCount: 3,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: ['#ff4757', '#ff7f50', '#ffd1dc']
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+        }
+
+        // ยิงพลุตอนเปิดหน้าครั้งแรก
+        window.onload = () => {
+            setTimeout(() => {
+                confetti({
+                    particleCount: 150,
+                    spread: 70,
+                    origin: { y: 0.6 }
+                });
+            }, 500);
+        };
+    </script>
+</body>
+</html>
